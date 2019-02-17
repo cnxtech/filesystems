@@ -57,7 +57,6 @@ php artisan codex:addons:enable codex/filesystems
         'path'   => resource_path('docs/test-zip-project/test-zip-project.zip'),
     ],
 
-
     'my-s3-project' => [
         'driver' => 's3',
         'key'    => env('AWS_ACCESS_KEY_ID'),
@@ -66,9 +65,34 @@ php artisan codex:addons:enable codex/filesystems
         'bucket' => env('AWS_BUCKET'),
         'url'    => env('AWS_URL'),
     ], 
+    
+    'my-sftp-project' => [
+        'driver'        => 'sftp',
+        'host'          => env('SFTP_HOST'),
+        'port'          => env('SFTP_PORT'),
+        'username'      => env('SFTP_USERNAME'),
+        'password'      => env('SFTP_PASSWORD'),
+        'privateKey'    => env('SFTP_PRIVATEKEY'),
+        'root'          => env('SFTP_ROOT'),
+        'timeout'       => 10,
+        'directoryPerm' => 0755,
+    ],
+    
+    'my-rackspace-project' => [
+        'driver'   => 'rackspace',
+        'url'      => env('RACKSPACE_URL'),
+        'secret' => [
+            'username' => env('RACKSPACE_USERNAME'),
+            'apiKey'   => env('RACKSPACE_APIKEY'),
+        ],
+        'region'   => env('RACKSPACE_REGION'),
+        'options'  => [],
+    ],
 ]
 ```
 
-## License
 
-MIT
+<!--*codex:general:hide*-->
+## Copyright/License
+Copyright 2019 [Robin Radic](https://github.com/RobinRadic) - [MIT Licensed](LICENSE.md)
+<!--*codex:/general:hide*-->
